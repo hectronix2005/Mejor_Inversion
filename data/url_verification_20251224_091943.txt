@@ -1,0 +1,48 @@
+================================================================================
+REPORTE DE VERIFICACION DE URLs DE BANCOS - CDT COLOMBIA
+Generado: 2025-12-24 09:19:43
+================================================================================
+
+ESTADISTICAS GENERALES:
+  Total bancos: 1
+  Total URLs verificadas: 2
+  URLs accesibles: 2 (100.0%)
+  URLs con contenido CDT: 2 (100.0%)
+  URLs con tasas detectadas: 0 (0.0%)
+
+--------------------------------------------------------------------------------
+DETALLE POR BANCO:
+--------------------------------------------------------------------------------
+
+============================================================
+BANCO: Bancolombia
+Codigo: bancolombia
+Notas: Usa simulador dinamico con JavaScript
+============================================================
+
+  URL (main): https://www.bancolombia.com/personas/productos-servicios/inversiones/cdt
+  Estado: [OK] HTTP 200 | [CDT] | [-----] | [JS]
+  Tiempo respuesta: 270ms | Tamaño: 131.5KB
+  Titulo: Inversiones Personas: Portafolio de Ahorro/ Inversión...
+  Keywords CDT: cdt, certificado, inversion, tasa, plazo
+  NOTA: Requiere JavaScript/navegador para contenido dinamico
+
+  URL (rates): https://www.bancolombia.com/personas/productos-servicios/inversiones/cdt/simulador
+  Estado: [OK] HTTP 200 | [CDT] | [-----] | [JS]
+  Tiempo respuesta: 244ms | Tamaño: 131.6KB
+  Titulo: Inversiones Personas: Portafolio de Ahorro/ Inversión...
+  Keywords CDT: cdt, certificado, inversion, tasa, plazo
+  NOTA: Requiere JavaScript/navegador para contenido dinamico
+
+================================================================================
+RESUMEN DE PROBLEMAS:
+================================================================================
+  - Bancolombia: Requiere Selenium para scraping (main)
+  - Bancolombia: Requiere Selenium para scraping (rates)
+
+================================================================================
+RECOMENDACIONES PARA SCRAPING:
+================================================================================
+  [DIFICIL] Bancolombia: JS dinamico, posible API interna
+
+================================================================================

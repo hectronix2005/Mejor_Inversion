@@ -1,0 +1,44 @@
+================================================================================
+REPORTE DE VERIFICACION DE URLs DE BANCOS - CDT COLOMBIA
+Generado: 2025-12-24 09:19:55
+================================================================================
+
+ESTADISTICAS GENERALES:
+  Total bancos: 1
+  Total URLs verificadas: 2
+  URLs accesibles: 1 (50.0%)
+  URLs con contenido CDT: 1 (50.0%)
+  URLs con tasas detectadas: 0 (0.0%)
+
+--------------------------------------------------------------------------------
+DETALLE POR BANCO:
+--------------------------------------------------------------------------------
+
+============================================================
+BANCO: Coltefinanciera
+Codigo: coltefinanciera
+Notas: Compania de financiamiento - tasas competitivas
+============================================================
+
+  URL (main): https://www.coltefinanciera.com.co/
+  Estado: [OK] HTTP 200 | [CDT] | [-----] | [JS]
+  Tiempo respuesta: 885ms | Tamaño: 973.3KB
+  Titulo: Inicio - Coltefinanciera...
+  Keywords CDT: cdt, tasa, ahorro
+  NOTA: Requiere JavaScript/navegador para contenido dinamico
+
+  URL (rates): https://www.coltefinanciera.com.co/personas/productos/cdt
+  Estado: [ERROR] HTTP 404 | [---] | [-----] | [--]
+  Tiempo respuesta: 1333ms | Tamaño: 842.5KB
+
+================================================================================
+RESUMEN DE PROBLEMAS:
+================================================================================
+  - Coltefinanciera: Requiere Selenium para scraping (main)
+  - Coltefinanciera: URL no accesible (rates)
+
+================================================================================
+RECOMENDACIONES PARA SCRAPING:
+================================================================================
+
+================================================================================

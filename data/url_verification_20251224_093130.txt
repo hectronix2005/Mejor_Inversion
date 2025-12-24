@@ -1,0 +1,45 @@
+================================================================================
+REPORTE DE VERIFICACION DE URLs DE BANCOS - CDT COLOMBIA
+Generado: 2025-12-24 09:31:30
+================================================================================
+
+ESTADISTICAS GENERALES:
+  Total bancos: 1
+  Total URLs verificadas: 2
+  URLs accesibles: 2 (100.0%)
+  URLs con contenido CDT: 2 (100.0%)
+  URLs con tasas detectadas: 0 (0.0%)
+
+--------------------------------------------------------------------------------
+DETALLE POR BANCO:
+--------------------------------------------------------------------------------
+
+============================================================
+BANCO: MejorCDT.com (Fuente Principal)
+Codigo: mejorcdt
+Notas: FUENTE PRINCIPAL. Datos consolidados mensuales de todos los bancos. Muy confiable.
+============================================================
+
+  URL (main): https://mejorcdt.com/
+  Estado: [OK] HTTP 200 | [CDT] | [-----] | [--]
+  Tiempo respuesta: 938ms | Tamaño: 96.8KB
+  Titulo: MejorCDT - Hoy 11% E.A. de Rentabilidad...
+  Keywords CDT: cdt, inversion, tasa, plazo, e.a.
+
+  URL (rates): https://mejorcdt.com/mejores-cdt-diciembre-2025
+  Estado: [OK] HTTP 200 | [CDT] | [-----] | [--]
+  Tiempo respuesta: 194ms | Tamaño: 94.9KB
+  Titulo: Mejores CDT Diciembre 2025 — Ranking para todos los montos y...
+  Keywords CDT: cdt, tasa, plazo, rendimiento, rentabilidad
+
+================================================================================
+RESUMEN DE PROBLEMAS:
+================================================================================
+  No se detectaron problemas criticos
+
+================================================================================
+RECOMENDACIONES PARA SCRAPING:
+================================================================================
+  [REVISAR] MejorCDT.com (Fuente Principal): Verificar manualmente
+
+================================================================================

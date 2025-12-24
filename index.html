@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejores CDT Diciembre 2025 - Ranking para todos los montos y plazos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-color);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Top 3 Section */
+        .top-banks {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+
+        .top-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .bank-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .bank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .bank-card.featured {
+            border: 2px solid var(--primary-color);
+        }
+
+        .bank-card .rank {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--accent-color), #f97316);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .bank-card .bank-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .bank-card .rate {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin: 15px 0;
+        }
+
+        .bank-card .rate span {
+            font-size: 1rem;
+            color: var(--gray-color);
+        }
+
+        .bank-card .details {
+            margin: 20px 0;
+        }
+
+        .bank-card .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bank-card .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .bank-card .detail-label {
+            color: var(--gray-color);
+        }
+
+        .bank-card .detail-value {
+            font-weight: 600;
+        }
+
+        /* Simulator Section */
+        .simulator {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .simulator-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .simulator-form {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .simulator-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .simulator-result {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .simulator-result.show {
+            display: block;
+        }
+
+        .result-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        /* Banks Directory */
+        .banks-directory {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .banks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .bank-item {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .bank-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .bank-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .bank-item .name {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* CDT Comparison Table */
+        .comparison-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .comparison-table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: #f0f9ff;
+        }
+
+        .comparison-table .rate-cell {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .investment-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .investment-badge.cdt {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .investment-badge.finca-raiz {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+
+        .investment-badge.fiduciarios {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .investment-badge.cuenta-ahorro {
+            background-color: #f3e8ff;
+            color: #7c3aed;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .author-info p {
+            color: var(--gray-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .simulator-content {
+                grid-template-columns: 1fr;
+            }
+
+            .top-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                InvierteColombia
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#ranking">Ranking</a></li>
+                    <li><a href="#simulador">Simulador</a></li>
+                    <li><a href="#bancos">Bancos</a></li>
+                    <li><a href="#info">Info</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn btn-secondary">
+                <i class="fas fa-mobile-alt"></i>
+                Descargar App
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="badge">
+                <i class="fas fa-clock"></i> Actualizado en Tiempo Real
+            </span>
+            <h1>Mejores CDT Diciembre 2025</h1>
+            <p class="subtitle">Ranking para todos los montos y plazos</p>
+            <p>Resultados actualizados a Diciembre 2025, en tiempo real. Abre tu CDT sin salir de casa con los mejores beneficios del mercado.</p>
+            <div class="hero-buttons">
+                <a href="#ranking" class="btn btn-primary">
+                    <i class="fas fa-trophy"></i>
+                    Ver Ranking
+                </a>
+                <a href="#simulador" class="btn btn-secondary">
+                    <i class="fas fa-calculator"></i>
+                    Simular CDT
+                </a>
+                <a href="#" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Consultar Asesor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 3 Banks -->
+    <section class="top-banks" id="ranking">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-medal"></i> Top 3 Entidades</h2>
+                <p>Las mejores tasas pueden variar según el monto y plazo seleccionado</p>
+            </div>
+            <div class="top-cards">
+                <div class="bank-card featured">
+                    <div class="rank">1</div>
+                    <div class="bank-name">Ban100</div>
+                    <div class="rate">10.30% <span>E.A.</span></div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="detail-label">Monto minimo</span>
+                            <span class="detail-value">$100.000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Plazo</span>
+                            <span class="detail-value">90 dias</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Digital</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-external-link-alt"></i> Abrir CDT
+                    </a>
+                </div>
+
+                <div class="bank-card">
+                    <div class="rank">2</div>
+                    <div class="bank-name">Banco Finandina</div>
+                    <div class="rate">10.20% <span>E.A.</span></div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="detail-label">Monto minimo</span>
+                            <span class="detail-value">$500.000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Plazo</span>
+                            <span class="detail-value">90 dias</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Digital</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-external-link-alt"></i> Abrir CDT
+                    </a>
+                </div>
+
+                <div class="bank-card">
+                    <div class="rank">3</div>
+                    <div class="bank-name">Banco Pichincha</div>
+                    <div class="rate">9.80% <span>E.A.</span></div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="detail-label">Monto minimo</span>
+                            <span class="detail-value">$500.000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Plazo</span>
+                            <span class="detail-value">90 dias</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Digital</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-external-link-alt"></i> Abrir CDT
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Section -->
+    <section class="simulator" id="simulador">
+        <div class="container">
+            <div class="simulator-content">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Simula tu CDT</h2>
+                    <p style="font-size: 1.2rem; color: var(--gray-color); margin-bottom: 30px;">
+                        Calcula cuanto ganarias con tu inversion. Los bancos ofrecen diferentes tasas segun el monto invertido y el plazo elegido.
+                    </p>
+                    <div class="info-card" style="text-align: left; padding: 0;">
+                        <h4 style="color: var(--dark-color); margin-bottom: 15px;">
+                            <i class="fas fa-info-circle" style="color: var(--primary-color);"></i>
+                            Que afecta las tasas?
+                        </h4>
+                        <ul style="color: var(--gray-color); padding-left: 20px;">
+                            <li>Decisiones del Banco de la Republica</li>
+                            <li>Fluctuaciones en tasas de gobierno</li>
+                            <li>Condiciones economicas del mercado</li>
+                            <li>Monto y plazo de la inversion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="simulator-form">
+                    <h3><i class="fas fa-calculator"></i> Calculadora CDT</h3>
+                    <div class="form-group">
+                        <label for="monto">Monto a invertir</label>
+                        <input type="number" id="monto" placeholder="Ej: 10000000" value="10000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="plazo">Plazo (dias)</label>
+                        <select id="plazo">
+                            <option value="30">30 dias (1 mes)</option>
+                            <option value="60">60 dias (2 meses)</option>
+                            <option value="90" selected>90 dias (3 meses)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tasa">Tasa E.A. (%)</label>
+                        <input type="number" id="tasa" step="0.01" value="10.30">
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="calcularCDT()">
+                        <i class="fas fa-chart-pie"></i> Calcular
+                    </button>
+                    <div class="simulator-result" id="resultado">
+                        <p>Ganancia estimada:</p>
+                        <div class="result-amount" id="ganancia">$0</div>
+                        <p>Total al vencimiento: <strong id="total">$0</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-table"></i> Comparativa de Inversiones</h2>
+                <p>Tasas de referencia para diferentes plazos - Diciembre 2025</p>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Entidad</th>
+                        <th>Tipo Inversion</th>
+                        <th>30 dias</th>
+                        <th>60 dias</th>
+                        <th>90 dias</th>
+                        <th>Monto Min.</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ordenado por tasa de 30 dias (descendente) -->
+                    <tr>
+                        <td><strong>Atomy Rent</strong></td>
+                        <td><span class="investment-badge fiduciarios">Fiduciarios</span></td>
+                        <td class="rate-cell">15.50%</td>
+                        <td class="rate-cell">15.50%</td>
+                        <td class="rate-cell">15.50%</td>
+                        <td>$200.000</td>
+                        <td><a href="https://atomyrent.com/" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pibank</strong></td>
+                        <td><span class="investment-badge cuenta-ahorro">Cta Ahorro</span></td>
+                        <td class="rate-cell">10.00%</td>
+                        <td class="rate-cell">10.00%</td>
+                        <td class="rate-cell">10.00%</td>
+                        <td>$1</td>
+                        <td><a href="https://www.pibank.co/" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ban100</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">9.50%</td>
+                        <td class="rate-cell">10.00%</td>
+                        <td class="rate-cell">10.30%</td>
+                        <td>$100.000</td>
+                        <td><a href="https://www.ban100.com.co/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nubank (Cajitas)</strong></td>
+                        <td><span class="investment-badge cuenta-ahorro">Cta Ahorro</span></td>
+                        <td class="rate-cell">9.25%</td>
+                        <td class="rate-cell">9.25%</td>
+                        <td class="rate-cell">9.25%</td>
+                        <td>$1</td>
+                        <td><a href="https://nu.com.co/" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banco Finandina</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">9.20%</td>
+                        <td class="rate-cell">9.70%</td>
+                        <td class="rate-cell">10.20%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.bancofinandina.com/personas/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lulo Bank</strong></td>
+                        <td><span class="investment-badge cuenta-ahorro">Cta Ahorro</span></td>
+                        <td class="rate-cell">9.00%</td>
+                        <td class="rate-cell">9.00%</td>
+                        <td class="rate-cell">9.00%</td>
+                        <td>$1</td>
+                        <td><a href="https://www.lulobank.com/" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banco Pichincha</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.80%</td>
+                        <td class="rate-cell">9.30%</td>
+                        <td class="rate-cell">9.80%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.bancopichincha.com.co/web/personas/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bancolombia</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.50%</td>
+                        <td class="rate-cell">9.00%</td>
+                        <td class="rate-cell">9.50%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.bancolombia.com/personas/productos-servicios/inversiones/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banco Popular</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.50%</td>
+                        <td class="rate-cell">9.00%</td>
+                        <td class="rate-cell">9.50%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.bancopopular.com.co/wps/portal/popular/inicio/personas/inversiones/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banco de Bogota</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.40%</td>
+                        <td class="rate-cell">8.90%</td>
+                        <td class="rate-cell">9.40%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.bancodebogota.com/wps/portal/banco-bogota/bogota/productos/para-ti/inversiones/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Colpatria</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.30%</td>
+                        <td class="rate-cell">8.80%</td>
+                        <td class="rate-cell">9.30%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.scotiabankcolpatria.com/personas/inversiones/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Davivienda</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.20%</td>
+                        <td class="rate-cell">8.80%</td>
+                        <td class="rate-cell">9.30%</td>
+                        <td>$500.000</td>
+                        <td><a href="https://www.davivienda.com/wps/portal/personas/nuevo/personas/quiero_invertir/cdt" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>BBVA</strong></td>
+                        <td><span class="investment-badge cdt">CDT</span></td>
+                        <td class="rate-cell">8.00%</td>
+                        <td class="rate-cell">8.50%</td>
+                        <td class="rate-cell">9.00%</td>
+                        <td>$1.000.000</td>
+                        <td><a href="https://www.bbva.com.co/personas/productos/inversion/cdt.html" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Abrir</a></td>
+                    </tr>
+                    <tr style="background-color: #fefce8;">
+                        <td><strong>Finca Raiz Colombia</strong></td>
+                        <td><span class="investment-badge finca-raiz">Finca Raiz</span></td>
+                        <td class="rate-cell">6.00%</td>
+                        <td class="rate-cell">6.50%</td>
+                        <td class="rate-cell">7.00%</td>
+                        <td>$50.000.000</td>
+                        <td><a href="https://www.fedelonjas.org.co/" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">Info</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Banks Directory -->
+    <section class="banks-directory" id="bancos">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-university"></i> Directorio de Bancos</h2>
+                <p>27 entidades disponibles para abrir tu CDT</p>
+            </div>
+            <div class="banks-grid">
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">AV Villas</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Banco Agrario</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Bancamia</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Banco W</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Bancolombia</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Bancoomeva</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">BBVA</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Banco de Bogota</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Caja Social</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Credifamilia</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Colpatria</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Coltefinanciera</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Coopcentral</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Ban100</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Davivienda</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Dann Regional</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Occidente</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Falabella</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Finandina</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Itau</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">MiBanco</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Mundo Mujer</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Pichincha</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Popular</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Serfinanza</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">Scotiabank</div></div>
+                <div class="bank-item"><i class="fas fa-landmark"></i><div class="name">GNB Sudameris</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section" id="info">
+        <div class="container">
+            <div class="section-title" style="color: white;">
+                <h2 style="color: white;">Por que elegirnos?</h2>
+                <p style="color: rgba(255,255,255,0.7);">Somos corredores comerciales independientes</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Autonomia Total</h3>
+                    <p>Somos independientes de las entidades financieras. Nuestro compromiso es con tu rentabilidad.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Agentes Avalados</h3>
+                    <p>Contamos con agentes comerciales certificados y avalados por las entidades financieras.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Tiempo Real</h3>
+                    <p>Informacion actualizada constantemente para que siempre tengas las mejores tasas disponibles.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Sin Costo</h3>
+                    <p>Nuestros servicios no tienen costo para ti. Las comisiones las pagan las entidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <i class="fas fa-quote-left" style="font-size: 3rem; color: var(--primary-color); opacity: 0.3; margin-bottom: 20px;"></i>
+                <p class="testimonial-quote">
+                    "Nuestra mision es democratizar el acceso a las mejores tasas del mercado. Cada colombiano merece la oportunidad de hacer crecer su dinero de la mejor manera posible."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>Carlos Correa</h4>
+                        <p>Director Ejecutivo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-chart-line" style="color: var(--accent-color);"></i>
+                        InvierteColombia
+                    </div>
+                    <p style="color: #94a3b8;">
+                        Tu plataforma de referenciacion comercial para encontrar las mejores tasas de CDT en Colombia.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#ranking">Ranking CDT</a></li>
+                        <li><a href="#simulador">Simulador</a></li>
+                        <li><a href="#bancos">Bancos</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terminos y Condiciones</a></li>
+                        <li><a href="#">Politica de Privacidad</a></li>
+                        <li><a href="#">Aviso Legal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Email</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 InvierteColombia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="#" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Configuracion de la API
+        const API_BASE = 'http://localhost:5001/api';
+
+        // Cache de datos
+        let ratesData = null;
+        let banksData = null;
+
+        // Inicializacion
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRatesData();
+            setupEventListeners();
+        });
+
+        // Cargar datos de la API
+        async function loadRatesData() {
+            try {
+                showLoading(true);
+
+                // Cargar ranking y bancos en paralelo
+                const [rankingRes, banksRes] = await Promise.all([
+                    fetch(`${API_BASE}/ranking`),
+                    fetch(`${API_BASE}/banks`)
+                ]);
+
+                if (rankingRes.ok && banksRes.ok) {
+                    const ranking = await rankingRes.json();
+                    const banks = await banksRes.json();
+
+                    ratesData = ranking;
+                    banksData = banks;
+
+                    updateUI(ranking, banks);
+                    updateLastUpdated(ranking.generated_at);
+                } else {
+                    console.log('API no disponible, usando datos estaticos');
+                }
+            } catch (error) {
+                console.log('Error conectando a la API:', error.message);
+                // Mantener datos estaticos si la API no esta disponible
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Actualizar la interfaz con datos de la API
+        function updateUI(ranking, banks) {
+            if (ranking && ranking.top_10) {
+                updateTop3Cards(ranking.top_10);
+                updateComparisonTable(ranking);
+                updateStatistics(ranking.statistics);
+            }
+
+            if (banks && banks.banks) {
+                updateBanksDirectory(banks.banks);
+            }
+        }
+
+        // Actualizar las tarjetas del Top 3
+        function updateTop3Cards(top10) {
+            const top3Container = document.querySelector('.top-cards');
+            if (!top3Container || !top10.length) return;
+
+            // Obtener los 3 mejores para 90 dias
+            const top90 = top10
+                .filter(r => r.term_days === 90)
+                .slice(0, 3);
+
+            if (top90.length < 3) {
+                // Si no hay suficientes de 90 dias, tomar los top generales
+                const topGeneral = top10.slice(0, 3);
+                top90.length = 0;
+                top90.push(...topGeneral);
+            }
+
+            const cardColors = ['featured', '', ''];
+
+            top3Container.innerHTML = top90.map((rate, index) => `
+                <div class="bank-card ${cardColors[index]}">
+                    <div class="rank">${index + 1}</div>
+                    <div class="bank-name">${rate.bank_name}</div>
+                    <div class="rate">${rate.rate_ea.toFixed(2)}% <span>E.A.</span></div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="detail-label">Monto minimo</span>
+                            <span class="detail-value">${formatCurrency(rate.min_amount || 500000)}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Plazo</span>
+                            <span class="detail-value">${rate.term_days} dias</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Digital</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="openCDT('${rate.bank_code}')">
+                        <i class="fas fa-external-link-alt"></i> Abrir CDT
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        // Actualizar tabla comparativa
+        async function updateComparisonTable(ranking) {
+            const tbody = document.querySelector('.comparison-table tbody');
+            if (!tbody) return;
+
+            // Obtener todas las tasas desde la API
+            let allRates = [];
+            try {
+                const ratesRes = await fetch(`${API_BASE}/rates`);
+                if (ratesRes.ok) {
+                    const ratesData = await ratesRes.json();
+                    allRates = ratesData.rates || [];
+                }
+            } catch (e) {
+                console.log('Using ranking data');
+            }
+
+            // Obtener bancos unicos - Solo plazos cortos
+            const banksMap = new Map();
+            const terms = ['30', '60', '90'];
+
+            allRates.forEach(rate => {
+                if (!banksMap.has(rate.bank_code)) {
+                    banksMap.set(rate.bank_code, {
+                        code: rate.bank_code,
+                        name: rate.bank_name,
+                        min_amount: rate.min_amount,
+                        investment_type: rate.investment_type || 'CDT',
+                        source_url: rate.source_url || '#',
+                        rates: {}
+                    });
+                }
+                if (terms.includes(String(rate.term_days))) {
+                    banksMap.get(rate.bank_code).rates[String(rate.term_days)] = rate.rate_ea;
+                }
+            });
+
+            // Ordenar por tasa de 30 dias (descendente)
+            const sortedBanks = Array.from(banksMap.values())
+                .filter(b => b.rates['30'])
+                .sort((a, b) => (b.rates['30'] || 0) - (a.rates['30'] || 0));
+
+            tbody.innerHTML = sortedBanks.map(bank => `
+                <tr ${bank.investment_type === 'Finca Raiz' ? 'style="background-color: #fefce8;"' : ''}>
+                    <td><strong>${bank.name}</strong></td>
+                    <td>${getInvestmentBadge(bank.investment_type)}</td>
+                    <td class="rate-cell">${bank.rates['30'] ? bank.rates['30'].toFixed(2) + '%' : '-'}</td>
+                    <td class="rate-cell">${bank.rates['60'] ? bank.rates['60'].toFixed(2) + '%' : '-'}</td>
+                    <td class="rate-cell">${bank.rates['90'] ? bank.rates['90'].toFixed(2) + '%' : '-'}</td>
+                    <td>${formatCurrency(bank.min_amount || 500000)}</td>
+                    <td><a href="${bank.source_url}" target="_blank" class="btn btn-primary" style="padding: 8px 16px;">${bank.investment_type === 'Finca Raiz' ? 'Info' : 'Abrir'}</a></td>
+                </tr>
+            `).join('');
+        }
+
+        // Generar badge de tipo de inversion
+        function getInvestmentBadge(type) {
+            const types = {
+                'CDT': { class: 'cdt', label: 'CDT' },
+                'Finca Raiz': { class: 'finca-raiz', label: 'Finca Raiz' },
+                'Derechos Fiduciarios': { class: 'fiduciarios', label: 'Fiduciarios' },
+                'Cuenta Ahorro': { class: 'cuenta-ahorro', label: 'Cta Ahorro' }
+            };
+            const typeInfo = types[type] || types['CDT'];
+            return `<span class="investment-badge ${typeInfo.class}">${typeInfo.label}</span>`;
+        }
+
+        // Actualizar directorio de bancos
+        function updateBanksDirectory(banks) {
+            const banksGrid = document.querySelector('.banks-grid');
+            if (!banksGrid || !banks.length) return;
+
+            // Actualizar el subtitulo con el conteo
+            const subtitle = document.querySelector('.banks-directory .section-title p');
+            if (subtitle) {
+                subtitle.textContent = `${banks.length} entidades disponibles para abrir tu CDT`;
+            }
+
+            banksGrid.innerHTML = banks.map(bank => `
+                <div class="bank-item" onclick="showBankDetails('${bank.code}')">
+                    <i class="fas fa-landmark"></i>
+                    <div class="name">${bank.name}</div>
+                    <div class="bank-rate-preview" style="font-size: 0.85rem; color: var(--secondary-color); margin-top: 5px;">
+                        Hasta ${bank.max_rate.toFixed(2)}% E.A.
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Actualizar estadisticas
+        function updateStatistics(stats) {
+            if (!stats) return;
+
+            // Actualizar tasa por defecto en el simulador
+            const tasaInput = document.getElementById('tasa');
+            if (tasaInput && stats.max_rate) {
+                tasaInput.value = stats.max_rate.toFixed(2);
+            }
+        }
+
+        // Actualizar fecha de ultima actualizacion
+        function updateLastUpdated(dateStr) {
+            const badge = document.querySelector('.badge');
+            if (badge && dateStr) {
+                const date = new Date(dateStr);
+                const formattedDate = date.toLocaleDateString('es-CO', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                badge.innerHTML = `<i class="fas fa-clock"></i> Actualizado: ${formattedDate}`;
+            }
+        }
+
+        // Mostrar/ocultar loading
+        function showLoading(show) {
+            // Implementar indicador de carga si se desea
+        }
+
+        // Mostrar detalles de un banco
+        async function showBankDetails(bankCode) {
+            try {
+                const response = await fetch(`${API_BASE}/bank/${bankCode}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    let message = `${data.bank_name}\n\nTasas disponibles:\n`;
+                    data.rates.forEach(rate => {
+                        message += `- ${rate.term_days} dias: ${rate.rate_ea.toFixed(2)}% E.A.\n`;
+                    });
+                    alert(message);
+                }
+            } catch (error) {
+                alert('Proximamente: Informacion detallada');
+            }
+        }
+
+        // Abrir CDT (placeholder)
+        function openCDT(bankCode) {
+            alert(`Redirigiendo a ${bankCode}...\n\nEn produccion, esto te llevaria al proceso de apertura del CDT.`);
+        }
+
+        // Calcular CDT usando la API o localmente
+        async function calcularCDT() {
+            const monto = parseFloat(document.getElementById('monto').value);
+            const plazo = parseInt(document.getElementById('plazo').value);
+            const tasaEA = parseFloat(document.getElementById('tasa').value);
+
+            if (!monto || monto <= 0) {
+                alert('Por favor ingresa un monto valido');
+                return;
+            }
+
+            try {
+                // Intentar usar la API
+                const response = await fetch(`${API_BASE}/simulate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: monto,
+                        term_days: plazo,
+                        rate_ea: tasaEA
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('ganancia').textContent = formatCurrency(data.result.net_profit);
+                    document.getElementById('total').textContent = formatCurrency(data.result.total);
+                    document.getElementById('resultado').classList.add('show');
+                    return;
+                }
+            } catch (error) {
+                // Si la API falla, calcular localmente
+            }
+
+            // Calculo local como fallback
+            const tasaDecimal = tasaEA / 100;
+            const tasaPeriodo = Math.pow(1 + tasaDecimal, plazo / 365) - 1;
+            const ganancia = monto * tasaPeriodo;
+            const retencion = ganancia * 0.04;
+            const gananciaNetaAproximada = ganancia - retencion;
+
+            document.getElementById('ganancia').textContent = formatCurrency(gananciaNetaAproximada);
+            document.getElementById('total').textContent = formatCurrency(monto + gananciaNetaAproximada);
+            document.getElementById('resultado').classList.add('show');
+        }
+
+        // Comparar CDTs
+        async function compararCDTs() {
+            const monto = parseFloat(document.getElementById('monto').value);
+            const plazo = parseInt(document.getElementById('plazo').value);
+
+            try {
+                const response = await fetch(`${API_BASE}/compare`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: monto,
+                        term_days: plazo
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Comparacion:', data);
+                    // Aqui se podria mostrar un modal con la comparacion
+                }
+            } catch (error) {
+                console.error('Error comparando CDTs:', error);
+            }
+        }
+
+        // Refrescar datos
+        async function refreshData() {
+            try {
+                const response = await fetch(`${API_BASE}/refresh`, { method: 'POST' });
+                if (response.ok) {
+                    await loadRatesData();
+                    alert('Datos actualizados correctamente');
+                }
+            } catch (error) {
+                alert('Error actualizando datos');
+            }
+        }
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            // Actualizar tasa cuando cambia el plazo
+            document.getElementById('plazo').addEventListener('change', async function() {
+                const plazo = parseInt(this.value);
+                if (ratesData && ratesData.by_term && ratesData.by_term[plazo]) {
+                    const bestRate = ratesData.by_term[plazo][0];
+                    if (bestRate) {
+                        document.getElementById('tasa').value = bestRate.rate_ea.toFixed(2);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

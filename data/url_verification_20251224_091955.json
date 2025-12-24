@@ -1,0 +1,48 @@
+{
+  "generated_at": "2025-12-24T09:19:55.219113",
+  "total_banks": 1,
+  "banks": {
+    "coltefinanciera": [
+      {
+        "bank_code": "coltefinanciera",
+        "bank_name": "Coltefinanciera",
+        "url": "https://www.coltefinanciera.com.co/",
+        "url_type": "main",
+        "status_code": 200,
+        "is_accessible": true,
+        "response_time_ms": 884.6147060394287,
+        "content_length": 996609,
+        "has_cdt_content": true,
+        "cdt_keywords_found": [
+          "cdt",
+          "tasa",
+          "ahorro"
+        ],
+        "rate_patterns_found": [],
+        "requires_javascript": true,
+        "error_message": null,
+        "verified_at": "2025-12-24T09:19:52.925631",
+        "page_title": "Inicio - Coltefinanciera",
+        "meta_description": ""
+      },
+      {
+        "bank_code": "coltefinanciera",
+        "bank_name": "Coltefinanciera",
+        "url": "https://www.coltefinanciera.com.co/personas/productos/cdt",
+        "url_type": "rates",
+        "status_code": 404,
+        "is_accessible": false,
+        "response_time_ms": 1333.1499099731445,
+        "content_length": 862677,
+        "has_cdt_content": false,
+        "cdt_keywords_found": [],
+        "rate_patterns_found": [],
+        "requires_javascript": false,
+        "error_message": null,
+        "verified_at": "2025-12-24T09:19:53.885660",
+        "page_title": "",
+        "meta_description": ""
+      }
+    ]
+  }
+}

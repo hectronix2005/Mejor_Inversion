@@ -1,0 +1,60 @@
+{
+  "generated_at": "2025-12-24T09:31:30.336213",
+  "total_banks": 1,
+  "banks": {
+    "mejorcdt": [
+      {
+        "bank_code": "mejorcdt",
+        "bank_name": "MejorCDT.com (Fuente Principal)",
+        "url": "https://mejorcdt.com/",
+        "url_type": "main",
+        "status_code": 200,
+        "is_accessible": true,
+        "response_time_ms": 938.4019374847412,
+        "content_length": 99072,
+        "has_cdt_content": true,
+        "cdt_keywords_found": [
+          "cdt",
+          "inversion",
+          "tasa",
+          "plazo",
+          "e.a.",
+          "rentabilidad",
+          "ahorro"
+        ],
+        "rate_patterns_found": [],
+        "requires_javascript": false,
+        "error_message": null,
+        "verified_at": "2025-12-24T09:31:29.147103",
+        "page_title": "MejorCDT - Hoy 11% E.A. de Rentabilidad",
+        "meta_description": "¡Abre gratis tu CDT hoy y obtén tasa del 11% E.A. a válido para todos los plazos!"
+      },
+      {
+        "bank_code": "mejorcdt",
+        "bank_name": "MejorCDT.com (Fuente Principal)",
+        "url": "https://mejorcdt.com/mejores-cdt-diciembre-2025",
+        "url_type": "rates",
+        "status_code": 200,
+        "is_accessible": true,
+        "response_time_ms": 193.88413429260254,
+        "content_length": 97220,
+        "has_cdt_content": true,
+        "cdt_keywords_found": [
+          "cdt",
+          "tasa",
+          "plazo",
+          "rendimiento",
+          "rentabilidad",
+          "intereses",
+          "ahorro"
+        ],
+        "rate_patterns_found": [],
+        "requires_javascript": false,
+        "error_message": null,
+        "verified_at": "2025-12-24T09:31:30.117204",
+        "page_title": "Mejores CDT Diciembre 2025 — Ranking para todos los montos y plazos",
+        "meta_description": "Los mejores CDT de Colombia están en MejorCDT, con tasas actualizadas y proceso 100% digital."
+      }
+    ]
+  }
+}

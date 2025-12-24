@@ -1,0 +1,62 @@
+{
+  "generated_at": "2025-12-24T09:19:43.986010",
+  "total_banks": 1,
+  "banks": {
+    "bancolombia": [
+      {
+        "bank_code": "bancolombia",
+        "bank_name": "Bancolombia",
+        "url": "https://www.bancolombia.com/personas/productos-servicios/inversiones/cdt",
+        "url_type": "main",
+        "status_code": 200,
+        "is_accessible": true,
+        "response_time_ms": 269.7417736053467,
+        "content_length": 134703,
+        "has_cdt_content": true,
+        "cdt_keywords_found": [
+          "cdt",
+          "certificado",
+          "inversion",
+          "tasa",
+          "plazo",
+          "rentabilidad",
+          "intereses",
+          "ahorro"
+        ],
+        "rate_patterns_found": [],
+        "requires_javascript": true,
+        "error_message": null,
+        "verified_at": "2025-12-24T09:19:43.408712",
+        "page_title": "Inversiones Personas: Portafolio de Ahorro/ Inversión",
+        "meta_description": "Tenemos para ofrecerte un portafolio de opciones de ahorro e inversión porque queremos que recibas mayores beneficios y rentabilidad en el tiempo."
+      },
+      {
+        "bank_code": "bancolombia",
+        "bank_name": "Bancolombia",
+        "url": "https://www.bancolombia.com/personas/productos-servicios/inversiones/cdt/simulador",
+        "url_type": "rates",
+        "status_code": 200,
+        "is_accessible": true,
+        "response_time_ms": 244.38714981079102,
+        "content_length": 134769,
+        "has_cdt_content": true,
+        "cdt_keywords_found": [
+          "cdt",
+          "certificado",
+          "inversion",
+          "tasa",
+          "plazo",
+          "rentabilidad",
+          "intereses",
+          "ahorro"
+        ],
+        "rate_patterns_found": [],
+        "requires_javascript": true,
+        "error_message": null,
+        "verified_at": "2025-12-24T09:19:43.716499",
+        "page_title": "Inversiones Personas: Portafolio de Ahorro/ Inversión",
+        "meta_description": "Tenemos para ofrecerte un portafolio de opciones de ahorro e inversión porque queremos que recibas mayores beneficios y rentabilidad en el tiempo."
+      }
+    ]
+  }
+}
