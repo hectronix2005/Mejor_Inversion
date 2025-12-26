@@ -1029,6 +1029,32 @@
             min-width: 100px;
         }
 
+        .comparison-table th.earnings-col {
+            text-align: center;
+            min-width: 140px;
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        .earnings-cell {
+            text-align: center;
+            font-weight: 600;
+            color: var(--success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .earnings-cell .earnings-gain {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .earnings-cell .earnings-total {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
         .comparison-table th:first-child {
             border-radius: var(--radius-xl) 0 0 0;
         }
@@ -1563,6 +1589,7 @@
                             <th class="rate-col">30 Dias</th>
                             <th class="rate-col">60 Dias</th>
                             <th class="rate-col">90 Dias</th>
+                            <th class="earnings-col">Invierto 10M</th>
                             <th>Monto Min.</th>
                             <th>Accion</th>
                         </tr>
@@ -1822,6 +1849,7 @@
                 const rank = index + 1;
                 const isTop3 = rank <= 3;
                 const initials = getInitials(inv.name);
+                const earnings = calculate30DayEarnings(10000000, inv.rates[30]);
 
                 return `
                 <tr class="${isTop3 ? 'top-3' : ''}" data-type="${inv.type}">
@@ -1838,6 +1866,10 @@
                     <td class="rate-cell">${inv.rates[30].toFixed(2)}%</td>
                     <td class="rate-cell">${inv.rates[60].toFixed(2)}%</td>
                     <td class="rate-cell">${inv.rates[90].toFixed(2)}%</td>
+                    <td class="earnings-cell">
+                        <span class="earnings-gain">+${formatCurrency(earnings.gain)}</span>
+                        <span class="earnings-total">Total: ${formatCurrencyShort(earnings.total)}</span>
+                    </td>
                     <td>${formatCurrency(inv.minAmount)}</td>
                     <td>
                         <a href="${inv.url}" target="_blank" class="btn btn-primary btn-sm">
@@ -1970,6 +2002,25 @@
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0
             }).format(value);
+        }
+
+        // Format currency short (for totals)
+        function formatCurrencyShort(value) {
+            if (value >= 1000000) {
+                return '$' + (value / 1000000).toFixed(2) + 'M';
+            }
+            return formatCurrency(value);
+        }
+
+        // Calculate 30-day earnings for a given amount and annual rate
+        function calculate30DayEarnings(principal, rateEA) {
+            const rateDecimal = rateEA / 100;
+            const ratePeriod = Math.pow(1 + rateDecimal, 30 / 365) - 1;
+            const gain = principal * ratePeriod;
+            return {
+                gain: gain,
+                total: principal + gain
+            };
         }
 
         // Try to load from API
