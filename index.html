@@ -1458,9 +1458,9 @@
                     <i class="fas fa-circle"></i>
                     Datos actualizados en tiempo real
                 </div>
-                <h1>Encuentra la mejor inversion para tu dinero</h1>
+                <h1>Encuentra la mejor inversión para tu dinero</h1>
                 <p class="hero-subtitle">
-                    Compara CDTs, cuentas de ahorro de alto rendimiento, derechos fiduciarios y bienes raices. Todo en un solo lugar con datos actualizados.
+                    Compara CDTs, cuentas de ahorro de alto rendimiento, derechos fiduciarios y bienes raíces. Todo en un solo lugar con datos actualizados.
                 </p>
                 <div class="hero-buttons">
                     <a href="#ranking" class="btn btn-primary">
@@ -1483,7 +1483,7 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">4</div>
-                        <div class="stat-label">Tipos de inversion</div>
+                        <div class="stat-label">Tipos de inversión</div>
                     </div>
                 </div>
             </div>
@@ -1552,7 +1552,7 @@
                 </span>
                 <h2 class="section-title">Comparativa de Inversiones</h2>
                 <p class="section-subtitle">
-                    Compara tasas de CDT, cuentas de ahorro, fiduciarios y finca raiz ordenadas por rendimiento.
+                    Compara tasas de CDT, cuentas de ahorro, fiduciarios y finca raíz ordenadas por rendimiento.
                 </p>
             </div>
 
@@ -1575,7 +1575,7 @@
                 </button>
                 <button class="filter-tab" data-filter="finca-raiz">
                     <i class="fas fa-home"></i>
-                    Finca Raiz <span class="count">1</span>
+                    Finca Raíz <span class="count">1</span>
                 </button>
             </div>
 
@@ -1586,12 +1586,12 @@
                             <th class="rank-col">#</th>
                             <th>Entidad</th>
                             <th>Tipo</th>
-                            <th class="rate-col">30 Dias</th>
-                            <th class="rate-col">60 Dias</th>
-                            <th class="rate-col">90 Dias</th>
+                            <th class="rate-col">30 Días</th>
+                            <th class="rate-col">60 Días</th>
+                            <th class="rate-col">90 Días</th>
                             <th class="earnings-col">Invierto 10M</th>
                             <th>Monto Min.</th>
-                            <th>Accion</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody id="ranking-tbody">
@@ -1612,7 +1612,7 @@
                 </span>
                 <h2 class="section-title">Calcula tu Rendimiento</h2>
                 <p class="section-subtitle">
-                    Simula cuanto podrias ganar con diferentes montos, plazos y tasas de interes.
+                    Simula cuánto podrías ganar con diferentes montos, plazos y tasas de interés.
                 </p>
 
                 <div class="investment-types">
@@ -1621,8 +1621,8 @@
                             <i class="fas fa-file-invoice-dollar"></i>
                         </div>
                         <div class="type-content">
-                            <h4>CDT - Certificado de Deposito</h4>
-                            <p>Inversion segura con tasa fija garantizada</p>
+                            <h4>CDT - Certificado de Depósito</h4>
+                            <p>Inversión segura con tasa fija garantizada</p>
                         </div>
                     </div>
                     <div class="investment-type-item">
@@ -1640,7 +1640,7 @@
                         </div>
                         <div class="type-content">
                             <h4>Derechos Fiduciarios</h4>
-                            <p>Inversion en activos inmobiliarios</p>
+                            <p>Inversión en activos inmobiliarios</p>
                         </div>
                     </div>
                     <div class="investment-type-item">
@@ -1671,22 +1671,24 @@
                     <label>Plazo</label>
                     <div class="input-wrapper">
                         <i class="fas fa-calendar"></i>
-                        <select id="plazo" onchange="updateBestRate()">
-                            <option value="30" selected>30 dias (1 mes)</option>
-                            <option value="60">60 dias (2 meses)</option>
-                            <option value="90">90 dias (3 meses)</option>
+                        <select id="plazo" onchange="updateRateFromEntity()">
+                            <option value="30" selected>30 días (1 mes)</option>
+                            <option value="60">60 días (2 meses)</option>
+                            <option value="90">90 días (3 meses)</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Tasa E.A. (%)</label>
+                    <label>Entidad</label>
                     <div class="input-wrapper">
-                        <i class="fas fa-percentage"></i>
-                        <input type="number" id="tasa" step="0.01" value="15.50">
+                        <i class="fas fa-university"></i>
+                        <select id="entidad" onchange="updateRateFromEntity()">
+                            <!-- Options populated by JavaScript -->
+                        </select>
                     </div>
                     <div class="rate-source" id="rate-source">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Mejor tasa a 30 dias: <strong>Atomy Rent</strong> (15.50% E.A.)</span>
+                        <i class="fas fa-percentage"></i>
+                        <span>Tasa E.A.: <strong id="tasa-display">15.50%</strong></span>
                     </div>
                 </div>
                 <button class="btn btn-primary" style="width: 100%;" onclick="calcularRendimiento()">
@@ -1704,7 +1706,7 @@
                             <strong id="total">$0</strong>
                         </div>
                         <div class="result-item">
-                            <span>Retencion (4%)</span>
+                            <span>Retención (4%)</span>
                             <strong id="retencion">$0</strong>
                         </div>
                     </div>
@@ -1725,7 +1727,7 @@
                         InvierteColombia
                     </a>
                     <p>
-                        Tu plataforma para comparar y encontrar las mejores inversiones en Colombia. CDT, cuentas de ahorro, fiduciarios y mas.
+                        Tu plataforma para comparar y encontrar las mejores inversiones en Colombia. CDT, cuentas de ahorro, fiduciarios y más.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -1735,7 +1737,7 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Navegacion</h4>
+                    <h4>Navegación</h4>
                     <ul>
                         <li><a href="#ranking"><i class="fas fa-chevron-right"></i> Ranking</a></li>
                         <li><a href="#simulador"><i class="fas fa-chevron-right"></i> Simulador</a></li>
@@ -1745,7 +1747,7 @@
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Terminos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Términos</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Privacidad</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Aviso Legal</a></li>
                     </ul>
@@ -1754,7 +1756,7 @@
                     <h4>Contacto</h4>
                     <ul>
                         <li><a href="#"><i class="fas fa-envelope"></i> Email</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> Telefono</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> Teléfono</a></li>
                     </ul>
                 </div>
             </div>
@@ -1785,11 +1787,11 @@
             { code: 'pichincha', name: 'Banco Pichincha', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.80, 60: 9.30, 90: 9.80 }, minAmount: 500000, url: 'https://www.bancopichincha.com.co/web/personas/cdt', logo: 'https://www.google.com/s2/favicons?domain=bancopichincha.com.co&sz=128' },
             { code: 'bancolombia', name: 'Bancolombia', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.50, 60: 9.00, 90: 9.50 }, minAmount: 500000, url: 'https://www.bancolombia.com/personas/productos-servicios/inversiones/cdt', logo: 'https://www.google.com/s2/favicons?domain=bancolombia.com&sz=128' },
             { code: 'popular', name: 'Banco Popular', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.50, 60: 9.00, 90: 9.50 }, minAmount: 500000, url: 'https://www.bancopopular.com.co/wps/portal/popular/inicio/personas/inversiones/cdt', logo: 'https://www.google.com/s2/favicons?domain=bancopopular.com.co&sz=128' },
-            { code: 'bogota', name: 'Banco de Bogota', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.40, 60: 8.90, 90: 9.40 }, minAmount: 500000, url: 'https://www.bancodebogota.com/wps/portal/banco-bogota/bogota/productos/para-ti/inversiones/cdt', logo: 'https://www.google.com/s2/favicons?domain=bancodebogota.com&sz=128' },
+            { code: 'bogota', name: 'Banco de Bogotá', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.40, 60: 8.90, 90: 9.40 }, minAmount: 500000, url: 'https://www.bancodebogota.com/wps/portal/banco-bogota/bogota/productos/para-ti/inversiones/cdt', logo: 'https://www.google.com/s2/favicons?domain=bancodebogota.com&sz=128' },
             { code: 'colpatria', name: 'Davibank', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.30, 60: 8.80, 90: 9.30 }, minAmount: 500000, url: 'https://www.davibank.com/', logo: 'https://cdn.aglty.io/scotiabank-colombia/home-nuevo/logos/logo_mobile_450px.png' },
             { code: 'davivienda', name: 'Davivienda', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.20, 60: 8.80, 90: 9.30 }, minAmount: 500000, url: 'https://www.davivienda.com/wps/portal/personas/nuevo/personas/quiero_invertir/cdt', logo: 'https://www.google.com/s2/favicons?domain=davivienda.com&sz=128' },
             { code: 'bbva', name: 'BBVA Colombia', type: 'cdt', typeLabel: 'CDT', rates: { 30: 8.00, 60: 8.50, 90: 9.00 }, minAmount: 1000000, url: 'https://www.bbva.com.co/personas/productos/inversion/cdt.html', logo: 'https://www.google.com/s2/favicons?domain=bbva.com&sz=128' },
-            { code: 'finca_raiz', name: 'Finca Raiz Colombia', type: 'finca-raiz', typeLabel: 'Finca Raiz', rates: { 30: 6.00, 60: 6.50, 90: 7.00 }, minAmount: 50000000, url: 'https://www.fedelonjas.org.co/', logo: 'https://www.fedelonjas.org.co/wp-content/uploads/2024/02/logo-fedelonjas-light.png' }
+            { code: 'finca_raiz', name: 'Finca Raíz Colombia', type: 'finca-raiz', typeLabel: 'Finca Raíz', rates: { 30: 6.00, 60: 6.50, 90: 7.00 }, minAmount: 50000000, url: 'https://www.fedelonjas.org.co/', logo: 'https://www.fedelonjas.org.co/wp-content/uploads/2024/02/logo-fedelonjas-light.png' }
         ];
 
         // Initialize
@@ -1941,33 +1943,56 @@
             return parseInt(formattedValue.replace(/[^\d]/g, '')) || 0;
         }
 
-        // Get best rate for a specific term
-        function getBestRateForTerm(termDays) {
-            const sorted = [...investmentsData].sort((a, b) => b.rates[termDays] - a.rates[termDays]);
-            return sorted[0];
+        // Populate entity dropdown sorted by rate
+        function populateEntityDropdown() {
+            const entidadSelect = document.getElementById('entidad');
+            const plazo = parseInt(document.getElementById('plazo').value);
+
+            // Sort by rate for the selected term (descending)
+            const sorted = [...investmentsData].sort((a, b) => b.rates[plazo] - a.rates[plazo]);
+
+            entidadSelect.innerHTML = sorted.map(inv => {
+                const rate = inv.rates[plazo].toFixed(2);
+                return `<option value="${inv.code}">${inv.name} (${rate}% E.A.)</option>`;
+            }).join('');
         }
 
-        // Update best rate display when plazo changes
-        function updateBestRate() {
+        // Update rate display when entity or term changes
+        function updateRateFromEntity() {
+            const entidadCode = document.getElementById('entidad').value;
             const plazo = parseInt(document.getElementById('plazo').value);
-            const best = getBestRateForTerm(plazo);
 
-            if (best) {
-                // Update rate input
-                document.getElementById('tasa').value = best.rates[plazo].toFixed(2);
+            // Repopulate dropdown to show updated rates for new term
+            populateEntityDropdown();
 
-                // Update rate source text
-                const rateSource = document.getElementById('rate-source');
-                rateSource.innerHTML = `
-                    <i class="fas fa-info-circle"></i>
-                    <span>Mejor tasa a ${plazo} dias: <strong>${best.name}</strong> (${best.rates[plazo].toFixed(2)}% E.A.)</span>
-                `;
+            // Re-select the entity if it exists
+            const entidadSelect = document.getElementById('entidad');
+            if (entidadCode) {
+                entidadSelect.value = entidadCode;
+            }
+
+            // Get selected entity
+            const selectedCode = entidadSelect.value;
+            const entity = investmentsData.find(inv => inv.code === selectedCode);
+
+            if (entity) {
+                const rate = entity.rates[plazo];
+                document.getElementById('tasa-display').textContent = `${rate.toFixed(2)}%`;
             }
         }
 
-        // Initialize simulator with best rate
+        // Get current selected rate
+        function getSelectedRate() {
+            const entidadCode = document.getElementById('entidad').value;
+            const plazo = parseInt(document.getElementById('plazo').value);
+            const entity = investmentsData.find(inv => inv.code === entidadCode);
+            return entity ? entity.rates[plazo] : 0;
+        }
+
+        // Initialize simulator with entity dropdown
         function initSimulator() {
-            updateBestRate();
+            populateEntityDropdown();
+            updateRateFromEntity();
         }
 
         // Calculate investment return
@@ -1975,10 +2000,15 @@
             const montoFormatted = document.getElementById('monto').value;
             const monto = parseMonto(montoFormatted);
             const plazo = parseInt(document.getElementById('plazo').value);
-            const tasaEA = parseFloat(document.getElementById('tasa').value);
+            const tasaEA = getSelectedRate();
 
             if (!monto || monto <= 0) {
-                alert('Por favor ingresa un monto valido');
+                alert('Por favor ingresa un monto válido');
+                return;
+            }
+
+            if (!tasaEA || tasaEA <= 0) {
+                alert('Por favor selecciona una entidad');
                 return;
             }
 
