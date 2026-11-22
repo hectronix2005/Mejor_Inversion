@@ -1,0 +1,68 @@
+# Tras cada compilación de GitHub Pages (= cada despliegue): sonda → etiqueta vAAAA.MM.DD-N y Release.
+# Si la sonda falla: bin/rollback a la última versión buena (una sola vez) y el job termina en rojo.
+name: Versionado y rollback
+
+on:
+  page_build:
+
+permissions:
+  contents: write   # etiqueta, Release y el commit de rollback
+  pages: write      # pedir la compilación de Pages si el rollback no la dispara solo
+  issues: write     # aviso del rollback automático (en Actions no hay bandeja de la flota)
+
+concurrency:
+  group: versionado
+  cancel-in-progress: false
+
+jobs:
+  sonda-y-etiqueta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      COMMIT: ${{ github.event.build.commit }}
+      ESTADO: ${{ github.event.build.status }}
+      ROLLBACK_SERVIDO: ${{ github.event.build.commit }}
+      ROLLBACK_BASE: ${{ github.event.build.commit }}   # bin/rollback no pisa main si avanzó
+      SONDA_INTENTOS: "12"
+      GIT_AUTHOR_NAME: github-actions[bot]
+      GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Compilación de Pages
+        run: |
+          echo "Pages: $ESTADO en $COMMIT"
+          if [ "$ESTADO" != "built" ]; then
+            echo "::error::La compilación de Pages terminó en '$ESTADO'; Pages sigue sirviendo la versión anterior. No etiqueto ni hago rollback."
+            exit 1
+          fi
+
+      - name: Sonda
+        id: sonda
+        run: bin/sonda
+
+      - name: Etiqueta y Release
+        if: steps.sonda.outcome == 'success'
+        run: bin/etiquetar "$COMMIT" || echo "::warning::No pude etiquetar $COMMIT (el despliegue sí está bien)."
+
+      - name: Rollback automático (una sola vez)
+        if: failure() && steps.sonda.outcome == 'failure'
+        run: |
+          git fetch -q origin "$COMMIT" || true
+          git fetch -q origin main || true
+          source bin/_versionado.sh
+          ultima=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -1)
+          if [ "$(git rev-parse origin/main)" != "$COMMIT" ]; then
+            echo "::error::main ya avanzó desde $COMMIT: no hago rollback automático para no pisar commits nuevos. Revisar a mano."
+          elif [ -n "$ultima" ] && [ "$(huella "$COMMIT")" = "$(huella "$ultima")" ]; then
+            echo "::error::La sonda falla pero el contenido es el de $ultima: parece caída de Pages, no del código. No hago rollback."
+          elif git log -1 --format=%s "$COMMIT" | grep -q '^Rollback a '; then
+            echo "::error::La sonda falla y lo servido ya es un rollback: no repito (nada de bucles). Revisar a mano."
+          else
+            bin/rollback || echo "::error::El rollback automático también falló."
+          fi
+          exit 1
