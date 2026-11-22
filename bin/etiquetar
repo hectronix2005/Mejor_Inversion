@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Crea la etiqueta anotada vAAAA.MM.DD-N (hora de Bogotá) sobre el commit desplegado, la sube
+# y crea la Release de GitHub. Si el commit tiene el mismo contenido que una versión ya
+# etiquetada (p. ej. tras un rollback; sin contar bin/ ni .github/), no crea otra: ya es esa versión.
+# Nunca hace fallar el despliegue: quien lo llama solo avisa si devuelve error.
+#   bin/etiquetar <commit>
+set -uo pipefail
+cd "$(dirname "$0")/.." || exit 1
+# shellcheck source=bin/_versionado.sh
+source bin/_versionado.sh
+COMMIT="${1:?uso: bin/etiquetar <commit>}"
+
+git fetch -q origin --tags --force || true
+propia=$(huella "$COMMIT") || exit 1
+
+for t in $(git tag -l 'v[0-9]*' --sort=-v:refname); do
+  if [[ "$(huella "$t")" == "$propia" ]]; then
+    echo "etiquetar: $COMMIT ya es la versión $t (mismo contenido); no creo otra"
+    exit 0
+  fi
+done
+
+dia=$(TZ=America/Bogota date +%Y.%m.%d)
+n=0
+for t in $(git tag -l "v$dia-*"); do
+  k=${t##*-}
+  [[ "$k" =~ ^[0-9]+$ ]] && ((k > n)) && n=$k
+done
+tag="v$dia-$((n + 1))"
+
+git -c user.name="${GIT_AUTHOR_NAME:-versionado}" -c user.email="${GIT_AUTHOR_EMAIL:-versionado@users.noreply.github.com}" \
+  tag -a "$tag" "$COMMIT" -m "Despliegue $tag ($(git log -1 --format=%s "$COMMIT"))" || exit 1
+git push -q origin "refs/tags/$tag" || { git tag -d "$tag" >/dev/null; exit 1; }
+echo "etiquetar: creada y subida $tag -> $COMMIT"
+
+if command -v gh >/dev/null 2>&1; then
+  gh release create "$tag" --verify-tag --title "$tag" --generate-notes >/dev/null \
+    && echo "etiquetar: Release $tag creada" \
+    || echo "etiquetar: AVISO no pude crear la Release (la etiqueta sí está)" >&2
+fi
+exit 0

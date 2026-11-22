@@ -1,0 +1,166 @@
+#!/usr/bin/env bash
+# Vuelve producción (GitHub Pages, servido desde main) a una versión etiquetada.
+#
+#   bin/rollback --seco             dice qué haría (versión servida → anterior) sin tocar nada
+#   bin/rollback --seco v2026.11.22-1
+#   bin/rollback                    vuelve a la versión anterior a la que se sirve
+#   bin/rollback v2026.11.22-1      vuelve a esa versión
+#
+# Cómo: crea en main un commit nuevo con el sitio de la etiqueta (bin/ y .github/ de versionado se
+# quedan como en main), sin reescribir historia ni forzar, lo sube por el camino normal (push a
+# main → GitHub Pages compila), espera la compilación, pasa bin/sonda y avisa.
+# Este proyecto NO tiene base de datos: no hay nada que restaurar (y el rollback nunca lo haría).
+# Requiere: git con permiso de push a origin y `gh` autenticado (para leer qué sirve Pages).
+set -uo pipefail
+cd "$(dirname "$0")/.." || exit 1
+
+# shellcheck source=bin/_versionado.sh
+source bin/_versionado.sh
+REPO="${GITHUB_REPOSITORY:-hectronix2005/Mejor_Inversion}"
+SECO=0
+VERSION=""
+for a in "$@"; do
+  case "$a" in
+    --seco|--dry-run) SECO=1 ;;
+    -h|--help) sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -*) echo "rollback: opción desconocida $a" >&2; exit 2 ;;
+    *) VERSION="$a" ;;
+  esac
+done
+
+# Ejecuta "$@" y lo corta a los $1 segundos (macOS no trae `timeout`).
+con_tiempo() {
+  local s=$1; shift
+  "$@" & local pid=$!
+  ( sleep "$s"; kill "$pid" 2>/dev/null ) >/dev/null 2>&1 & local vigia=$!
+  wait "$pid" 2>/dev/null; local rc=$?
+  kill "$vigia" 2>/dev/null; wait "$vigia" 2>/dev/null
+  return $rc
+}
+
+# Aviso a la flota. Nada de esto puede romper el rollback.
+avisar() {
+  local titulo="$1" detalle="$2" bandeja="$HOME/RubymineProjects/Ultron/monitor/bandeja.sh"
+  echo "rollback: $titulo — $detalle"
+  if [[ -n "${GITHUB_ACTIONS:-}" ]]; then
+    echo "::warning title=$titulo::$detalle"
+    con_tiempo 30 gh issue create --repo "$REPO" --title "MejorInversion: $titulo" \
+      --body "$detalle"$'\n\n'"Ejecución: ${GITHUB_SERVER_URL:-}/${REPO}/actions/runs/${GITHUB_RUN_ID:-}" >/dev/null 2>&1 \
+      || echo "rollback: AVISO no pude abrir la issue de aviso" >&2
+  fi
+  if [[ -f "$bandeja" ]]; then
+    local carta; carta=$(mktemp "${TMPDIR:-/tmp}/rollback-carta.XXXXXX") || carta=""
+    if [[ -n "$carta" ]]; then
+      printf 'Asunto: %s\n\n%s\n' "MejorInversion: $titulo" "$detalle" >"$carta"
+      if con_tiempo 30 bash "$bandeja" dejar-en air Ultron "$carta" >/dev/null 2>&1; then
+        rm -f "$carta"; return 0
+      fi
+      rm -f "$carta"
+    fi
+  fi
+  # La ~ se expande en el Air, no aquí.
+  # shellcheck disable=SC2088
+  con_tiempo 20 ssh -o ConnectTimeout=5 -o BatchMode=yes air \
+    python3 '~/RubymineProjects/Ultron/web/wt_push.py' --tag rollback \
+    "'MejorInversion: ${titulo//\'/}'" "'${detalle//\'/}'" >/dev/null 2>&1 || true
+  return 0
+}
+
+git fetch -q origin --tags --force main 2>/dev/null || echo "rollback: AVISO no pude actualizar desde origin; uso lo local" >&2
+
+# 1. Qué sirve producción ahora (la última compilación de Pages terminada bien; el workflow lo pasa
+#    en ROLLBACK_SERVIDO); si no se puede leer, origin/main.
+servido="${ROLLBACK_SERVIDO:-}"; origen="el evento de despliegue"
+if [[ -z "$servido" ]]; then
+  servido=$(con_tiempo 30 gh api "repos/$REPO/pages/builds" --jq '[.[] | select(.status == "built")][0].commit // empty' 2>/dev/null)
+  origen="compilación de Pages"
+fi
+if [[ -z "$servido" ]]; then
+  servido=$(git rev-parse origin/main); origen="origin/main (no pude leer Pages)"
+fi
+git cat-file -e "$servido^{commit}" 2>/dev/null || git fetch -q origin "$servido" 2>/dev/null
+huella_servida=$(huella "$servido") || { echo "rollback: no encuentro el commit servido $servido" >&2; exit 1; }
+
+etiquetas=$(git tag -l 'v[0-9]*' --sort=-v:refname)
+[[ -n "$etiquetas" ]] || { echo "rollback: no hay etiquetas v* — nada a lo que volver" >&2; exit 1; }
+
+actual=""
+for t in $etiquetas; do
+  [[ "$(huella "$t")" == "$huella_servida" ]] && { actual=$t; break; }
+done
+
+# 2. Versión destino: la pedida o la anterior a la servida.
+if [[ -z "$VERSION" ]]; then
+  pasado=0; [[ -z "$actual" ]] && pasado=1   # servido sin etiqueta (despliegue fallido): vale la última
+  for t in $etiquetas; do
+    if ((pasado)) && [[ "$(huella "$t")" != "$huella_servida" ]]; then VERSION=$t; break; fi
+    [[ "$t" == "$actual" ]] && pasado=1
+  done
+  [[ -n "$VERSION" ]] || { echo "rollback: no hay versión anterior a ${actual:-$servido}" >&2; exit 1; }
+fi
+
+# 3. Comprobar que la etiqueta existe.
+if ! git rev-parse -q --verify "refs/tags/$VERSION^{commit}" >/dev/null; then
+  echo "rollback: la etiqueta $VERSION no existe (en local ni en origin)" >&2; exit 1
+fi
+destino=$(git rev-parse "$VERSION^{commit}")
+
+echo "Producción sirve: ${actual:-sin etiqueta} (${servido:0:7}, según $origen)"
+echo "Destino:          $VERSION (${destino:0:7}) — $(git log -1 --format='%s, %cd' --date=short "$destino")"
+echo "Base de datos:    este proyecto no tiene; no hay copia que restaurar."
+if [[ "$(huella "$VERSION")" == "$huella_servida" ]]; then
+  echo "rollback: $VERSION ya es lo que se sirve; nada que hacer"; exit 0
+fi
+echo "Haría:            commit en main con el sitio de $VERSION (herramientas de main) → push (sin forzar) → esperar Pages → bin/sonda → avisar"
+
+if ((SECO)); then
+  echo "rollback --seco: etiqueta $VERSION encontrada; no se ha tocado nada."
+  exit 0
+fi
+
+# 4. Desplegar ESA versión por el camino normal: push a main.
+con_tiempo 30 gh auth status >/dev/null 2>&1 || { echo "rollback: gh no está autenticado; no subo nada" >&2; exit 1; }
+tmp=$(mktemp -d "${TMPDIR:-/tmp}/rollback.XXXXXX") || exit 1
+trap 'rm -rf "$tmp"' EXIT
+nombre="${GIT_AUTHOR_NAME:-rollback}"; correo="${GIT_AUTHOR_EMAIL:-rollback@users.noreply.github.com}"
+nuevo=""
+for _ in 1 2; do
+  base=$(git rev-parse origin/main)
+  rm -f "$tmp/index"
+  { git ls-tree -r "refs/tags/$VERSION" | grep -vE "$HERRAMIENTAS_RE"
+    git ls-tree -r "$base" -- "${HERRAMIENTAS[@]}"
+  } | GIT_INDEX_FILE="$tmp/index" git update-index --add --index-info || exit 1
+  arbol_nuevo=$(GIT_INDEX_FILE="$tmp/index" git write-tree) || exit 1
+  nuevo=$(GIT_AUTHOR_NAME="$nombre" GIT_AUTHOR_EMAIL="$correo" GIT_COMMITTER_NAME="$nombre" GIT_COMMITTER_EMAIL="$correo" \
+    git commit-tree "$arbol_nuevo" -p "$base" \
+      -m "Rollback a $VERSION" -m "Producción servía ${actual:-sin etiqueta} (${servido:0:7}). Hecho con bin/rollback.") || exit 1
+  git push -q origin "$nuevo:refs/heads/main" && break
+  nuevo=""
+  git fetch -q origin main
+done
+if [[ -z "$nuevo" ]]; then
+  avisar "rollback FALLIDO" "No pude subir a main el commit de vuelta a $VERSION."; exit 1
+fi
+echo "rollback: subido ${nuevo:0:7} a main; espero la compilación de Pages…"
+
+# 5. Esperar a que Pages compile ese commit (si a los 2 min no empezó, se pide la compilación).
+listo=0; pedida=0
+for ((s = 0; s < 600; s += 15)); do
+  estado=$(con_tiempo 30 gh api "repos/$REPO/pages/builds" \
+    --jq "[.[] | select(.commit == \"$nuevo\")][0].status // \"pendiente\"" 2>/dev/null)
+  if [[ "$estado" == "built" ]]; then listo=1; break; fi
+  if [[ "$estado" == "errored" ]]; then break; fi
+  if ((s >= 120 && !pedida)); then gh api -X POST "repos/$REPO/pages/builds" >/dev/null 2>&1; pedida=1; fi
+  sleep 15
+done
+if ((!listo)); then
+  avisar "rollback FALLIDO" "Subí ${nuevo:0:7} (vuelta a $VERSION) pero Pages no lo compiló en 10 min (último: ${estado:-?})."; exit 1
+fi
+
+# 6. Sonda y aviso.
+if bin/sonda; then
+  avisar "rollback a $VERSION hecho" "Producción vuelve a $VERSION (${nuevo:0:7}); sonda OK. Antes servía ${actual:-sin etiqueta} (${servido:0:7})."
+  exit 0
+fi
+avisar "rollback a $VERSION con sonda ROJA" "Pages compiló ${nuevo:0:7} (vuelta a $VERSION) pero la sonda sigue fallando. Revisar a mano."
+exit 1

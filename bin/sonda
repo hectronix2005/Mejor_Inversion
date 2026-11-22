@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Sonda de salud de producción (GitHub Pages): la portada responde 200 y es la página completa.
+# Reintenta unos minutos porque la CDN de Pages tarda en servir lo recién compilado.
+#   bin/sonda            # usa SONDA_URL o la URL de Pages del repo
+# Sale 0 si está sana, 1 si no.
+set -uo pipefail
+URL="${SONDA_URL:-https://hectronix2005.github.io/Mejor_Inversion/}"
+INTENTOS="${SONDA_INTENTOS:-6}"
+PAUSA="${SONDA_PAUSA:-20}"
+MARCA="${SONDA_MARCA:-InvierteColombia}"
+
+for ((i = 1; i <= INTENTOS; i++)); do
+  cuerpo=$(curl -fsSL --max-time 20 "$URL?sonda=$(date +%s)" 2>/dev/null) && \
+    grep -q "$MARCA" <<<"$cuerpo" && grep -qi '</html>' <<<"$cuerpo" && {
+      echo "sonda: OK $URL (intento $i)"
+      exit 0
+    }
+  echo "sonda: falla $URL (intento $i/$INTENTOS)" >&2
+  ((i < INTENTOS)) && sleep "$PAUSA"
+done
+exit 1
