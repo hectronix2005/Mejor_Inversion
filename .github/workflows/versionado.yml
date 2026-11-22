@@ -17,12 +17,13 @@ concurrency:
 jobs:
   sonda-y-etiqueta:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     env:
       GH_TOKEN: ${{ github.token }}
       COMMIT: ${{ github.event.build.commit }}
       ESTADO: ${{ github.event.build.status }}
       ROLLBACK_SERVIDO: ${{ github.event.build.commit }}
+      ROLLBACK_BASE: ${{ github.event.build.commit }}   # bin/rollback no pisa main si avanzó
       SONDA_INTENTOS: "12"
       GIT_AUTHOR_NAME: github-actions[bot]
       GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
@@ -52,7 +53,14 @@ jobs:
         if: failure() && steps.sonda.outcome == 'failure'
         run: |
           git fetch -q origin "$COMMIT" || true
-          if git log -1 --format=%s "$COMMIT" | grep -q '^Rollback a '; then
+          git fetch -q origin main || true
+          source bin/_versionado.sh
+          ultima=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -1)
+          if [ "$(git rev-parse origin/main)" != "$COMMIT" ]; then
+            echo "::error::main ya avanzó desde $COMMIT: no hago rollback automático para no pisar commits nuevos. Revisar a mano."
+          elif [ -n "$ultima" ] && [ "$(huella "$COMMIT")" = "$(huella "$ultima")" ]; then
+            echo "::error::La sonda falla pero el contenido es el de $ultima: parece caída de Pages, no del código. No hago rollback."
+          elif git log -1 --format=%s "$COMMIT" | grep -q '^Rollback a '; then
             echo "::error::La sonda falla y lo servido ya es un rollback: no repito (nada de bucles). Revisar a mano."
           else
             bin/rollback || echo "::error::El rollback automático también falló."

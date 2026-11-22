@@ -21,5 +21,6 @@ No hay base de datos (los datos son JSON en `data/`, versionados en git).
   `wt_push.py` por ssh al Air). Necesita `gh` autenticado y permiso de push.
 - **Automático:** si la sonda falla tras un despliegue, el workflow llama a `bin/rollback` una sola vez
   (nunca si lo servido ya es un «Rollback a …») y termina en rojo.
-- **Qué NO hace:** no restaura datos ni base, no borra etiquetas ni reescribe `main`. Después de un
+- **Qué NO hace:** no hay base que restaurar (los JSON de `data/` sí vuelven a los de la etiqueta y
+  quedan en el historial de git); no borra etiquetas ni reescribe `main`. Después de un
   rollback, `main` contiene la versión vieja: el arreglo se hace con un PR encima.

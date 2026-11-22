@@ -126,6 +126,9 @@ nombre="${GIT_AUTHOR_NAME:-rollback}"; correo="${GIT_AUTHOR_EMAIL:-rollback@user
 nuevo=""
 for _ in 1 2; do
   base=$(git rev-parse origin/main)
+  if [[ -n "${ROLLBACK_BASE:-}" && "$base" != "$ROLLBACK_BASE" ]]; then
+    avisar "rollback CANCELADO" "main avanzó (${base:0:7} ≠ ${ROLLBACK_BASE:0:7}): no piso commits nuevos."; exit 1
+  fi
   rm -f "$tmp/index"
   { git ls-tree -r "refs/tags/$VERSION" | grep -vE "$HERRAMIENTAS_RE"
     git ls-tree -r "$base" -- "${HERRAMIENTAS[@]}"
@@ -150,7 +153,7 @@ for ((s = 0; s < 600; s += 15)); do
     --jq "[.[] | select(.commit == \"$nuevo\")][0].status // \"pendiente\"" 2>/dev/null)
   if [[ "$estado" == "built" ]]; then listo=1; break; fi
   if [[ "$estado" == "errored" ]]; then break; fi
-  if ((s >= 120 && !pedida)); then gh api -X POST "repos/$REPO/pages/builds" >/dev/null 2>&1; pedida=1; fi
+  if ((s >= 120 && !pedida)); then con_tiempo 30 gh api -X POST "repos/$REPO/pages/builds" >/dev/null 2>&1; pedida=1; fi
   sleep 15
 done
 if ((!listo)); then
